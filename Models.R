@@ -158,6 +158,9 @@ xgboost_train = xgb.DMatrix(data=X_train, label=y_train)
 xgboost_test = xgb.DMatrix(data=X_test, label=y_test)
 model <- xgboost(data = xgboost_train, max.depth=3,nrounds=50)
 summary(model)
+importance_matrix =xgb.importance(colnames(xgboost_train), model = model)
+importance_matrix 
+xgb.plot.importance(importance_matrix[1:9,])
 pred_test = predict(model, xgboost_test)
 pred_test
 pred_y = as.factor((levels(y_test))[round(pred_test)])
