@@ -69,6 +69,7 @@ data$corona_result=as.factor(data$corona_result)
 
 summary(data)
 str(data)
+set.seed(123)
 #Train and Test
 split = sample(2,nrow(data), replace = TRUE, prob = c(0.8, 0.2))
 training_data = data[split==1, ]
